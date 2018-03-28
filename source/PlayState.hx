@@ -104,11 +104,11 @@ class PlayState extends FlxState
 		timeInLevel += elapsed;
 		helpText.visible = false;
 		InputHelper.updateKeys(elapsed);
+		super.update(elapsed);
 		FlxG.overlap(player, enemies, playerOverlapEntity);
 		FlxG.overlap(playerAttacks, enemies, attackHits);
 		FlxG.overlap(enemyAttacks, collision, attackHitsMap);
 		FlxG.overlap(enemyAttacks, player, attackHits);
-		super.update(elapsed);
 		FlxG.overlap(entities, zones, EntityOverlapZone);
 		FlxG.collide(player, collision);
 		FlxG.collide(enemies, collision);
