@@ -6,6 +6,7 @@ import entities.gameentites.Hopper;
 import entities.gameentites.Minion;
 import entities.gameentites.Squid;
 import entities.gameentites.Wallgun;
+import entities.gameentites.XBowMinion;
 import flixel.FlxG;
 import flixel.tile.FlxTilemap;
 import tmxtools.TmxRect;
@@ -60,7 +61,11 @@ class EnemyFactory
 			case 'acid':
 				e = new Acid(map);
 				H.rectToTile(rect);
-				e.reset(rect.r.x,rect.r.y);
+				e.reset(rect.r.x, rect.r.y);
+			case 'xbowminion':
+				e = new XBowMinion(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
 			default:
 				
 		}
