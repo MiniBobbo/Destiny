@@ -100,7 +100,6 @@
   <object id="12" name="travel" type="1_2" x="15.1515" y="18.1818" width="27.2727" height="730.303"/>
   <object id="13" name="message" type="Press K or Z to attack" x="84.8485" y="524.242" width="287.879" height="239.394"/>
   <object id="14" name="message" type="Sneaking up on enemies deals double damage on a successful attack." x="712.121" y="839.394" width="227.273" height="172.727"/>
-  <object id="15" name="enemy" type="minion" x="1293.94" y="787.879" width="21.2121" height="30.303"/>
   <object id="18" name="door" type="open" x="2133.33" y="912.121" width="21.2121" height="27.2727"/>
   <object id="21" name="crystal" type="open" x="2006.06" y="466.667" width="21.2121" height="18.1818">
    <properties>

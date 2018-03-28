@@ -34,7 +34,7 @@ class Door extends Enemy
 	
 	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
 	{
-		if (Std.is(entity, Player))
+		//if (Std.is(entity, Player))
 			FlxG.collide(this, entity);
 	}
 	

@@ -1,5 +1,7 @@
 package entities.gameentites;
 
+import entities.Entity;
+import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
@@ -19,6 +21,7 @@ class Crystal extends Enemy
 		animation.addByPrefix('flash', 'crystal_flash', 6);
 		animation.play('flash');
 		setSize(64, 64);
+		hp = 1;
 		this.signalToSend = signalToSend;
 	}
 	
@@ -27,5 +30,11 @@ class Crystal extends Enemy
 		H.signalAll(signalToSend);
 		FlxTween.tween(this, {alpha:0}, .5, {onComplete: function(_) {alive = false; exists = false; }});
 		
+	}
+	
+	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
+	{
+		H.signalAll('open');
+		FlxG.collide(this, entity);
 	}
 }

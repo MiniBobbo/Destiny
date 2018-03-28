@@ -78,8 +78,9 @@ class PlayState extends FlxState
 		
 		playerAttacks.add(player.attack);
 		
-		FlxG.log.add('Player attacks: ' + playerAttacks.countDead());
-		FlxG.log.add('Player attacks: ' + playerAttacks.countLiving());
+		FlxG.watch.add(playerAttacks.members, 'length', 'Player attacks');
+		FlxG.watch.add(enemies.members, 'length', 'enemies');
+		//FlxG.watch.add('Player attacks: ' + playerAttacks.countLiving());
 		add(player);
 		add(enemies);
 		add(enemyAttacks);
@@ -104,14 +105,15 @@ class PlayState extends FlxState
 		timeInLevel += elapsed;
 		helpText.visible = false;
 		InputHelper.updateKeys(elapsed);
-		super.update(elapsed);
 		FlxG.overlap(player, enemies, playerOverlapEntity);
 		FlxG.overlap(playerAttacks, enemies, attackHits);
 		FlxG.overlap(enemyAttacks, collision, attackHitsMap);
 		FlxG.overlap(enemyAttacks, player, attackHits);
-		FlxG.overlap(entities, zones, EntityOverlapZone);
+		if(timeInLevel > .5)
+			FlxG.overlap(entities, zones, EntityOverlapZone);
 		FlxG.collide(player, collision);
 		FlxG.collide(enemies, collision);
+		super.update(elapsed);
 	}
 	
 	public function attackHits(a:Attack, e:Entity) {

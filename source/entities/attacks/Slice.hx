@@ -17,6 +17,7 @@ class Slice extends Attack
 	{
 		super(lifespan);
 		visible = false;
+		//offset.y += 128;
 	}
 	
 	

@@ -749,10 +749,10 @@
 },
 {
 	"filename": "slices_swing_0.png",
-	"frame": {"x":1,"y":1133,"w":49,"h":17},
+	"frame": {"x":1,"y":1133,"w":50,"h":18},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":175,"w":49,"h":17},
+	"spriteSourceSize": {"x":63,"y":119,"w":50,"h":18},
 	"sourceSize": {"w":192,"h":192},
 	"pivot": {"x":0.5,"y":0.5}
 },
@@ -761,16 +761,16 @@
 	"frame": {"x":219,"y":1099,"w":62,"h":74},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":19,"y":111,"w":62,"h":74},
+	"spriteSourceSize": {"x":63,"y":67,"w":62,"h":74},
 	"sourceSize": {"w":192,"h":192},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "slices_swing_2.png",
-	"frame": {"x":307,"y":946,"w":57,"h":30},
+	"frame": {"x":307,"y":946,"w":58,"h":30},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":111,"w":57,"h":30},
+	"spriteSourceSize": {"x":43,"y":59,"w":58,"h":30},
 	"sourceSize": {"w":192,"h":192},
 	"pivot": {"x":0.5,"y":0.5}
 },
@@ -925,6 +925,6 @@
 	"format": "RGBA8888",
 	"size": {"w":511,"h":1162},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d8a5d2e4507d461b101727a02a8b1bcd:f40ef5ec275bbf569343d0f811ffeb0b:eb36726edbc7063f335dbc5f8316ac1e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ece94a5959b9ec73948e0c1279d14c27:811f56996c7b0f0a7ecbd03392084db2:eb36726edbc7063f335dbc5f8316ac1e$"
 }
 }

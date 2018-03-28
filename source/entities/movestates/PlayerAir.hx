@@ -1,6 +1,7 @@
 package entities.movestates;
 
 import entities.Entity;
+import entities.Player;
 import entities.movestates.MoveState.MovementStateEnum;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -81,8 +82,16 @@ class PlayerAir extends MoveState
 			launchAttack();				
 		}
 		
-		if (attacking)
+		if (attacking) {
+			var p:Player = cast entity;
+			var a = p.attack;
+			if (!p.flipX) {
+				a.setPosition(p.x + 10, p.y - 71);
+			} else
+				a.setPosition(p.x - 192+30, p.y - 71);
+			
 			return;
+		}
 		
 		if (entity.velocity.y < 0 && entity.animation.name != 'jumpup') {
 			if (entity.animation.name != 'airswing') {
@@ -110,12 +119,12 @@ class PlayerAir extends MoveState
 		p.animation.play('airswing');
 		if (!p.flipX) {
 			p.attack.flipX = false;
-			p.attack.reset(p.x + 52, p.y-124);
+			p.attack.reset(p.x + 10, p.y-71);
 			p.attack.initAttack(FlxPoint.weak(), .2, 'swing');
 		}
 		else {
 			p.attack.flipX = true;
-			p.attack.reset(p.x - 212, p.y-124);
+			p.attack.reset(p.x - 192+30, p.y - 71);
 			p.attack.initAttack(FlxPoint.weak(), .2, 'swing');
 		}
 		attackingTimer.start(.3, function(_) {attacking = false; } );
