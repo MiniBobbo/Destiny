@@ -95,7 +95,6 @@ class Player extends Entity
 		switch (signal) 
 		{
 			case 'hit':
-				trace('Player hit');
 				var a:Attack = cast data;
 				var damage = a.strength;
 				takeDamage(damage);

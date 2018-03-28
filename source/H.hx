@@ -127,6 +127,26 @@ class H
 		rect.r.height = 64;
 	}
 	
+	public static function rectToRects(rect:TmxRect):Array<TmxRect> {
+		var startPoint = worldToTileLocation(FlxPoint.weak(rect.r.x, rect.r.y));
+		var width:Int = Std.int((rect.r.width / 64) + 1);
+		var height:Int = Std.int((rect.r.height / 64) + 1);
+		
+		var newrects:Array<TmxRect> = [];
+		
+		for (w in 0...width) {
+			for (h in 0...height) {
+				var newr:TmxRect = {
+				name:rect.name,
+				properties:rect.properties,
+				r: new FlxRect(startPoint.x + (w * 64), startPoint.y + (h * 64), 64, 64)};
+				newrects.push(newr);
+			}
+		}
+		
+		return newrects;
+	}
+	
 	public static function setPlaystate(playState:PlayState) {
 		ps = playState;
 	}

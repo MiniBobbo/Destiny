@@ -54,6 +54,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/data/levels/4.tmx");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("assets/data/levels/50blocks.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -211,7 +215,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "559",
+			build: "590",
 			company: "HaxeFlixel",
 			file: "Destiny",
 			fps: 60,

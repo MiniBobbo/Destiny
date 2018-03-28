@@ -182,6 +182,13 @@ class PlayState extends FlxState
 					var c = EnemyFactory.createEnemy('crystal', r, collision);
 					entities.add(c);
 					enemies.add(c);
+				case 'sprite':
+					var splitrects = H.rectToRects(r);
+					for (i in splitrects) {
+						var s = EnemyFactory.createEnemy(r.properties.get('type'), i, collision);
+						entities.add(s);
+						enemies.add(s);
+					}
 					
 				default:
 					trace( 'Problem with a zone.  ');

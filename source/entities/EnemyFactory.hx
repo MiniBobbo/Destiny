@@ -57,6 +57,10 @@ class EnemyFactory
 				e = new Squid(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
+			case 'acid':
+				e = new Acid(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x,rect.r.y);
 			default:
 				
 		}

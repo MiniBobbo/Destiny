@@ -127,9 +127,9 @@
  </layer>
  <objectgroup name="zones">
   <object id="28" name="door" type="open" x="1167.36" y="212.121" width="27.2727" height="24.2424"/>
-  <object id="30" name="travel" type="4" x="1227.27" y="75.7576" width="33.3333" height="163.636"/>
+  <object id="30" name="travel" type="4_3" x="1227.27" y="75.7576" width="33.3333" height="163.636"/>
   <object id="31" name="d" type="4" x="1042.42" y="200" width="21.2121" height="33.3333"/>
-  <object id="32" name="travel" type="3" x="12.1212" y="1239.39" width="30.303" height="209.091"/>
+  <object id="32" name="travel" type="2_3" x="12.1212" y="1239.39" width="30.303" height="209.091"/>
   <object id="33" name="d" type="2" x="142.424" y="1424.24" width="24.2424" height="33.3333"/>
   <object id="36" name="enemy" type="wallgun" x="81.8182" y="1678.79" width="24.2424" height="27.2727"/>
   <object id="37" name="enemy" type="wallgun" x="78.7879" y="1100" width="30.303" height="27.2727"/>
