@@ -52,7 +52,7 @@
 </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="1" name="travel" type="start" x="152" y="1100" width="16" height="36"/>
-  <object id="3" name="enemy" type="minion" x="724" y="1108" width="24" height="16"/>
+  <object id="1" name="d" type="start" x="152" y="1100" width="16" height="36"/>
+  <object id="3" name="enemy" type="wallgun" x="599.758" y="1174.67" width="24" height="16"/>
  </objectgroup>
 </map>

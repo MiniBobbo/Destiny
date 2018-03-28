@@ -44,7 +44,7 @@ class Player extends Entity
 		
 		ID = 99;
 		
-		attack = new Slice();
+		registerAttack(new Slice());
 		
 		//offset.x = (100 - width) / 2;
 		addMoveStateToMap(MovementStateEnum.GROUND, new PlayerGround(this));
@@ -55,6 +55,7 @@ class Player extends Entity
 		FlxG.watch.add(this, 'currentMoveEnum');
 		FlxG.watch.add(this, 'velocity');
 	}
+	
 	
 	
 	
@@ -85,6 +86,21 @@ class Player extends Entity
 	 */
 	public function setBottom(floor:Float) {
 		y = floor - height;
+	}
+	
+	override public function signal(signal:String, ?data:Dynamic) 
+	{
+		switch (signal) 
+		{
+			case 'hit':
+				var a:Attack = cast data;
+				var damage = a.strength;
+				takeDamage(damage);
+				
+			default:
+				
+		}
+			
 	}
 	
 }

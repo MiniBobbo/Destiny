@@ -4,6 +4,7 @@ import entities.gameentites.Door;
 import entities.gameentites.Enemy;
 import entities.gameentites.Hopper;
 import entities.gameentites.Minion;
+import entities.gameentites.Wallgun;
 import flixel.FlxG;
 import flixel.tile.FlxTilemap;
 import tmxtools.TmxRect;
@@ -45,10 +46,17 @@ class EnemyFactory
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
 				e.immovable = true;
+			case 'wallgun':
+				e = new Wallgun(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				e.immovable = true;
 				
 			default:
 				
 		}
+		if (rect.properties.exists('facing'))
+			e.flipX = true;
 		
 		return e;
 	}

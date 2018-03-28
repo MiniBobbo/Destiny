@@ -87,7 +87,7 @@ class PlayState extends FlxState
 		add(playerAttacks);
 		add(helpText);
 		add(zones);
-		FlxG.camera.follow(player, FlxCameraFollowStyle.PLATFORMER, 1);
+		FlxG.camera.follow(player, FlxCameraFollowStyle.LOCKON, 1);
 		FlxG.camera.setScrollBoundsRect(0,0,collision.width, collision.height);
 	}
 
@@ -107,7 +107,7 @@ class PlayState extends FlxState
 		InputHelper.updateKeys(elapsed);
 		FlxG.overlap(player, enemies, playerOverlapEntity);
 		FlxG.overlap(playerAttacks, enemies, attackHits);
-		FlxG.overlap(enemyAttacks, collision, attackHitsMap);
+		FlxG.collide(enemyAttacks, collision, attackHitsMap);
 		FlxG.overlap(enemyAttacks, player, attackHits);
 		if(timeInLevel > .5)
 			FlxG.overlap(entities, zones, EntityOverlapZone);
@@ -187,20 +187,30 @@ class PlayState extends FlxState
 					trace( 'Problem with a zone.  ');
 			}
 		}
+		
+		if (player == null) {
+			trace('Did not find a spot for the player in world ' + H.gd.world + ' checkpoint ' + H.gd.checkpoint);
+			createPlayer(rects[0]);
+		}
 	}
 	
 	private function getMap() {
-		switch (H.gd.world) 
-		{
-			case 1:
-				return new TmxTools('assets/data/levels/1.tmx', 'assets/data/levels/');
-			case 2:
-				return new TmxTools('assets/data/levels/2.tmx', 'assets/data/levels/');
-				
-			default:
-				return new TmxTools('assets/data/levels/1.tmx', 'assets/data/levels/');
+		if (H.gd.world == -2)
+		return new TmxTools('assets/data/levels/monsterTest.tmx', 'assets/data/levels/');
+		
+		//switch (H.gd.world) 
+		//{
+			//case 1:
+				//return new TmxTools('assets/data/levels/1.tmx', 'assets/data/levels/');
+			//case 2:
+				//return new TmxTools('assets/data/levels/2.tmx', 'assets/data/levels/');
+			//case 3:
+			//default:
+				//return new TmxTools('assets/data/levels/1.tmx', 'assets/data/levels/');
+//
+		//}
+	return new TmxTools('assets/data/levels/' + H.gd.world + '.tmx', 'assets/data/levels/');
 
-		}
 	}
 	
 	/**
@@ -212,5 +222,9 @@ class PlayState extends FlxState
 			FlxG.switchState(s);
 			
 		});
+	}
+	
+	public function killPlayer() {
+		
 	}
 }

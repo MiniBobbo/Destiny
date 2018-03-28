@@ -75,6 +75,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -88,6 +90,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
 		className.set ("assets/data/levels/1.tmx", __ASSET__assets_data_levels_1_tmx);
 		type.set ("assets/data/levels/1.tmx", AssetType.TEXT);
+		className.set ("assets/data/levels/2.tmx", __ASSET__assets_data_levels_2_tmx);
+		type.set ("assets/data/levels/2.tmx", AssetType.TEXT);
+		className.set ("assets/data/levels/3.tmx", __ASSET__assets_data_levels_3_tmx);
+		type.set ("assets/data/levels/3.tmx", AssetType.TEXT);
 		className.set ("assets/data/levels/32blocks.png", __ASSET__assets_data_levels_32blocks_png);
 		type.set ("assets/data/levels/32blocks.png", AssetType.IMAGE);
 		className.set ("assets/data/levels/32Blocks.tsx", __ASSET__assets_data_levels_32blocks_tsx);
@@ -150,6 +156,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.TEXT);
 		id = "assets/data/levels/1.tmx";
+		path.set (id, id);
+		
+		type.set (id, AssetType.TEXT);
+		id = "assets/data/levels/2.tmx";
+		path.set (id, id);
+		
+		type.set (id, AssetType.TEXT);
+		id = "assets/data/levels/3.tmx";
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
@@ -280,6 +294,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/data/levels/1.tmx", __ASSET__assets_data_levels_1_tmx);
 		type.set ("assets/data/levels/1.tmx", AssetType.TEXT);
+		
+		className.set ("assets/data/levels/2.tmx", __ASSET__assets_data_levels_2_tmx);
+		type.set ("assets/data/levels/2.tmx", AssetType.TEXT);
+		
+		className.set ("assets/data/levels/3.tmx", __ASSET__assets_data_levels_3_tmx);
+		type.set ("assets/data/levels/3.tmx", AssetType.TEXT);
 		
 		className.set ("assets/data/levels/32blocks.png", __ASSET__assets_data_levels_32blocks_png);
 		type.set ("assets/data/levels/32blocks.png", AssetType.IMAGE);
@@ -1005,6 +1025,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:keep @:bind #if display private #end class __ASSET__assets_data_data_goes_here_txt extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_1_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_2_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_3_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_32blocks_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_32blocks_tsx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_50blocks_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1059,6 +1081,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
 @:keep #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font { public function new () { super (); name = "Monsterrat"; } } 
 
@@ -1074,6 +1098,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:file("assets/data/data-goes-here.txt") #if display private #end class __ASSET__assets_data_data_goes_here_txt extends lime.utils.Bytes {}
 @:file("assets/data/levels/1.tmx") #if display private #end class __ASSET__assets_data_levels_1_tmx extends lime.utils.Bytes {}
+@:file("assets/data/levels/2.tmx") #if display private #end class __ASSET__assets_data_levels_2_tmx extends lime.utils.Bytes {}
+@:file("assets/data/levels/3.tmx") #if display private #end class __ASSET__assets_data_levels_3_tmx extends lime.utils.Bytes {}
 @:image("assets/data/levels/32blocks.png") #if display private #end class __ASSET__assets_data_levels_32blocks_png extends lime.graphics.Image {}
 @:file("assets/data/levels/32Blocks.tsx") #if display private #end class __ASSET__assets_data_levels_32blocks_tsx extends lime.utils.Bytes {}
 @:image("assets/data/levels/50blocks.png") #if display private #end class __ASSET__assets_data_levels_50blocks_png extends lime.graphics.Image {}

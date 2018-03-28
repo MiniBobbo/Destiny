@@ -34,7 +34,7 @@ class Crystal extends Enemy
 	
 	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
 	{
-		H.signalAll('open');
+		//H.signalAll('open');
 		FlxG.collide(this, entity);
 	}
 }

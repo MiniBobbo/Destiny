@@ -22,6 +22,8 @@ class AssetData {
 			type.set ("assets/data/levels/1.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/levels/2.tmx", "assets/data/levels/2.tmx");
 			type.set ("assets/data/levels/2.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/data/levels/3.tmx", "assets/data/levels/3.tmx");
+			type.set ("assets/data/levels/3.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/levels/32blocks.png", "assets/data/levels/32blocks.png");
 			type.set ("assets/data/levels/32blocks.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/data/levels/32Blocks.tsx", "assets/data/levels/32Blocks.tsx");
