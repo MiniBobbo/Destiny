@@ -35,11 +35,12 @@ class Attack extends FlxSprite
 	{
 		super();
 		frames = FlxAtlasFrames.fromTexturePackerJson('assets/images/mainAtlas.png', 'assets/images.mainAtlas.json');
-		animation.addByPrefix('swing', 'slices_swing_', 15, false);
-		animation.addByPrefix('swingdown', 'slices_swingdown', 15, false);
+		animation.addByPrefix('swing', 'slices_none', 15, false);
+		animation.addByPrefix('swingdown', 'slices_none', 15, false);
+		animation.addByPrefix('none', 'slices_none', 15, false);
 		animation.addByPrefix('ball', 'slices_ball', 15);
 		animation.play('swing');
-		setSize(192, 192);
+		setSize(64, 64);
 		centerOffsets();
 		centerOrigin();
 		//offset.x = 60;
@@ -90,7 +91,7 @@ class Attack extends FlxSprite
 				type = AttackTypes.SHOT;
 
 			default:
-				setSize(192, 192);
+				setSize(64, 64);
 				centerOffsets();
 				centerOrigin();
 				type = AttackTypes.SLICE;

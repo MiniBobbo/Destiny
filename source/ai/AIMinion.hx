@@ -98,12 +98,12 @@ class AIMinion extends AI
 		e.registerAttack(attack);
 		if (!e.flipX) {
 			attack.flipX = false;
-			attack.reset(e.x-20, e.y-71);
+			attack.reset(e.x+40, e.y-10);
 			attack.initAttack(FlxPoint.weak(), .2, 'swingdown');
 		}
 		else {
 			attack.flipX = true;
-			attack.reset(e.x - 192+20, e.y - 71);
+			attack.reset(e.x - 64, e.y - 10);
 			attack.initAttack(FlxPoint.weak(), .2, 'swingdown');
 		}
 		attackTimer.start(ATTACK_TIME, function (_) {attacking = false; e.releaseAttack(); });

@@ -117,9 +117,9 @@ class PlayState extends FlxState
 	}
 	
 	public function attackHits(a:Attack, e:Entity) {
-		if (a.ID != e.IDLastAttackHit && FlxG.pixelPerfectOverlap(a, e)) {
+		if (a.ID != e.IDLastAttackHit)// && FlxG.pixelPerfectOverlap(a, e)) {
 			e.signal('hit', a);
-		}
+//		}
 		
 	}
 	

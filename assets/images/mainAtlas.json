@@ -802,6 +802,15 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
+	"filename": "slices_none_0.png",
+	"frame": {"x":139,"y":1230,"w":3,"h":3},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":3,"h":3},
+	"sourceSize": {"w":192,"h":192},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
 	"filename": "slices_swing_0.png",
 	"frame": {"x":169,"y":272,"w":50,"h":18},
 	"rotated": false,
@@ -1159,6 +1168,6 @@
 	"format": "RGBA8888",
 	"size": {"w":505,"h":1356},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:845d7bf07740583d0e153bfe7c185a03:b8c524886595f79d704b4d2751a83101:eb36726edbc7063f335dbc5f8316ac1e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:adf176c6c8152ff6d51fe2c2307c1eae:ee64e3dc3709934f0b62cc2c3c8cbe63:eb36726edbc7063f335dbc5f8316ac1e$"
 }
 }
