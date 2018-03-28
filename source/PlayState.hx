@@ -7,15 +7,18 @@ import entities.Player;
 import entities.Zone;
 import entities.gameentites.Crystal;
 import entities.gameentites.Enemy;
+import entities.zones.DeathZone;
 import entities.zones.HelpMessageZone;
 import entities.zones.SignalZone;
 import entities.zones.TravelZone;
 import flixel.FlxCamera.FlxCameraFollowStyle;
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
+import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import inputhelper.InputHelper;
 import tmxtools.TmxRect;
@@ -41,6 +44,8 @@ class PlayState extends FlxState
 	var timeInLevel:Float = 0;
 	
 	public var helpText(default, null):FlxText;
+	
+	var cover:FlxSprite;
 	
 	override public function create():Void
 	{
@@ -88,7 +93,16 @@ class PlayState extends FlxState
 		add(helpText);
 		add(zones);
 		FlxG.camera.follow(player, FlxCameraFollowStyle.LOCKON, 1);
-		FlxG.camera.setScrollBoundsRect(0,0,collision.width, collision.height);
+		FlxG.camera.setScrollBoundsRect(0, 0, collision.width, collision.height);
+		
+		FlxG.camera.fade(FlxColor.BLACK, .3, true);
+		
+		cover = new FlxSprite();
+		cover.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK );
+		cover.scrollFactor.set();
+		FlxTween.tween(cover, {x:FlxG.width}, .3);
+		add(cover);
+		
 	}
 
 	private function createPlayer(r:TmxRect) {
@@ -128,8 +142,11 @@ class PlayState extends FlxState
 	}
 	
 	public function playerOverlapEntity(p:Player, e:Entity) {
-		p.overlapEntity(e);
-		e.overlapEntity(p);
+		if (p.hp > 0 && e.hp > 0) {
+			p.overlapEntity(e);
+			e.overlapEntity(p);
+			
+		}
 	}
 	
 	public function EntityOverlapZone(e:Entity, z:Zone) {
@@ -189,7 +206,9 @@ class PlayState extends FlxState
 						entities.add(s);
 						enemies.add(s);
 					}
-					
+				case 'death':
+					var d = new DeathZone(r.r.x, r.r.y, r.r.width, r.r.height);
+					zones.add(d);
 				default:
 					trace( 'Problem with a zone.  ');
 			}
@@ -232,6 +251,8 @@ class PlayState extends FlxState
 	}
 	
 	public function killPlayer() {
-		
+		FlxTween.tween(cover, {x:0}, .3, {onComplete:  function (_) {
+				H.ps.resetState();
+		}});
 	}
 }

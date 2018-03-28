@@ -44,7 +44,7 @@ class Player extends Entity
 		
 		ID = 99;
 		
-		hp = 5;
+		hp = 1;
 		FlxG.watch.add(this, 'hp');
 		registerAttack(new Slice());
 		
@@ -103,6 +103,14 @@ class Player extends Entity
 				
 		}
 			
+	}
+	
+	override public function takeDamage(damage:Int = 1) 
+	{
+		super.takeDamage(damage);
+		if (hp <= 0) {
+			H.ps.killPlayer();
+		}
 	}
 	
 }
