@@ -27,7 +27,8 @@ class Attack extends FlxSprite
 	{
 		super();
 		frames = FlxAtlasFrames.fromTexturePackerJson('assets/images/mainAtlas.png', 'assets/images.mainAtlas.json');
-		animation.addByPrefix('swing', 'slices_swing', 15, false);
+		animation.addByPrefix('swing', 'slices_swing_', 15, false);
+		animation.addByPrefix('swingdown', 'slices_swingdown', 15, false);
 		animation.play('swing');
 		setSize(192, 192);
 		centerOffsets();

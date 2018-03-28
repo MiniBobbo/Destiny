@@ -27,7 +27,7 @@ class Door extends Enemy
 	override public function signal(signal:String, ?data:Dynamic) 
 	{
 		if (openSignal == signal) {
-			FlxG.camera.shake(.05, 1);
+			FlxG.camera.shake(.02, .5);
 			FlxTween.tween(this, {alpha:0}, 1, {onComplete:function(_) {kill(); }});
 		}
 	}

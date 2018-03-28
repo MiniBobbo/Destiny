@@ -22,7 +22,6 @@ class Player extends Entity
 	var GRAVITY:Float = 1200;
 	
 	
-	public var attack(default, null):Slice;
 	
 	public function new(m:FlxTilemap) 
 	{
@@ -57,9 +56,6 @@ class Player extends Entity
 		FlxG.watch.add(this, 'velocity');
 	}
 	
-	public function registerAttack(a:Slice) {
-		this.attack = a;
-	}
 	
 	
 	override public function update(elapsed:Float):Void 

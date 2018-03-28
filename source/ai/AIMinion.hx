@@ -85,17 +85,18 @@ class AIMinion extends AI
 	private function makeAttack(_) {
 		e.animation.play('swingsword');
 		attack = H.ps.getEnemyAttack();
+		e.registerAttack(attack);
 		if (!e.flipX) {
 			attack.flipX = false;
-			attack.reset(e.x + 52, e.y-112);
-			attack.initAttack(FlxPoint.weak(), .2, 'swing');
+			attack.reset(e.x-20, e.y-71);
+			attack.initAttack(FlxPoint.weak(), .2, 'swingdown');
 		}
 		else {
 			attack.flipX = true;
-			attack.reset(e.x - 212, e.y-112);
-			attack.initAttack(FlxPoint.weak(), .2, 'swing');
+			attack.reset(e.x - 192+20, e.y - 71);
+			attack.initAttack(FlxPoint.weak(), .2, 'swingdown');
 		}
-		attackTimer.start(ATTACK_TIME, function (_) {attacking = false; });
+		attackTimer.start(ATTACK_TIME, function (_) {attacking = false; e.releaseAttack(); });
 		
 	}
 }

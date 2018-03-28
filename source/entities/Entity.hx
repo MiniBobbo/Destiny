@@ -26,6 +26,8 @@ class Entity extends FlxSprite
 	var moveStateMap:Map<MovementStateEnum, MoveState>;
 	var restoreSize:Float = 0;
 	
+	public var attack(default, null):Attack;
+	
 	var aiStateMap:Map<AIState, AI>;
 	
 	//What is the ID of the last hit on this entity?  Basically allows an entity to not be hit by the same attack multiple times.
@@ -110,6 +112,8 @@ class Entity extends FlxSprite
 		hp -= damage;
 		FlxSpriteUtil.flicker(this, .3);
 		if (hp <= 0) {
+			if (attack != null)
+				attack.kill();
 			FlxSpriteUtil.fadeOut(this, .3, function(_) { this.kill(); } );
 		}
 	}
@@ -139,6 +143,14 @@ class Entity extends FlxSprite
 	
 	public function dropDown() {
 		y += 4;
+	}
+	
+	public function registerAttack(a:Attack) {
+		attack = a;
+	}
+	
+	public function releaseAttack() {
+		attack = null;
 	}
 	
 }

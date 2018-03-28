@@ -117,8 +117,6 @@ class PlayState extends FlxState
 	}
 	
 	public function attackHits(a:Attack, e:Entity) {
-		FlxG.log.add('Attack hit something.');
-		
 		if (a.ID != e.IDLastAttackHit && FlxG.pixelPerfectOverlap(a, e)) {
 			e.signal('hit', a);
 		}
