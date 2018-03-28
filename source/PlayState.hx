@@ -112,7 +112,7 @@ class PlayState extends FlxState
 		if(timeInLevel > .5)
 			FlxG.overlap(entities, zones, EntityOverlapZone);
 		FlxG.collide(player, collision);
-		FlxG.collide(enemies, collision);
+		//FlxG.collide(enemies, collision);
 		super.update(elapsed);
 	}
 	

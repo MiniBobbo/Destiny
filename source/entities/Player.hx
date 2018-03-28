@@ -44,6 +44,8 @@ class Player extends Entity
 		
 		ID = 99;
 		
+		hp = 5;
+		FlxG.watch.add(this, 'hp');
 		registerAttack(new Slice());
 		
 		//offset.x = (100 - width) / 2;
@@ -93,6 +95,7 @@ class Player extends Entity
 		switch (signal) 
 		{
 			case 'hit':
+				trace('Player hit');
 				var a:Attack = cast data;
 				var damage = a.strength;
 				takeDamage(damage);

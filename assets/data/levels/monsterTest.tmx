@@ -3,6 +3,9 @@
  <tileset firstgid="1" name="64blocks" tilewidth="64" tileheight="64" tilecount="10" columns="10">
   <image source="64blocks.png" width="640" height="64"/>
  </tileset>
+ <tileset firstgid="11" name="stonetileset" tilewidth="64" tileheight="64" tilecount="144" columns="8">
+  <image source="stonetileset.png" width="512" height="1152"/>
+ </tileset>
  <layer name="collision" width="20" height="20">
   <data encoding="csv">
 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
@@ -53,6 +56,6 @@
  </layer>
  <objectgroup name="Object Layer 1">
   <object id="1" name="d" type="start" x="152" y="1100" width="16" height="36"/>
-  <object id="3" name="enemy" type="wallgun" x="599.758" y="1174.67" width="24" height="16"/>
+  <object id="3" name="enemy" type="squid" x="599.758" y="998.909" width="24" height="16"/>
  </objectgroup>
 </map>

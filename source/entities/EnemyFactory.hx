@@ -4,6 +4,7 @@ import entities.gameentites.Door;
 import entities.gameentites.Enemy;
 import entities.gameentites.Hopper;
 import entities.gameentites.Minion;
+import entities.gameentites.Squid;
 import entities.gameentites.Wallgun;
 import flixel.FlxG;
 import flixel.tile.FlxTilemap;
@@ -51,7 +52,11 @@ class EnemyFactory
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
 				e.immovable = true;
-				
+			
+			case 'squid':
+				e = new Squid(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
 			default:
 				
 		}

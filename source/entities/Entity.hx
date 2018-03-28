@@ -28,6 +28,8 @@ class Entity extends FlxSprite
 	
 	public var attack(default, null):Attack;
 	
+	public var collideMap:Bool = true;
+	
 	var aiStateMap:Map<AIState, AI>;
 	
 	//What is the ID of the last hit on this entity?  Basically allows an entity to not be hit by the same attack multiple times.
@@ -43,6 +45,8 @@ class Entity extends FlxSprite
 		moveStateMap = new Map<MovementStateEnum, MoveState>();
 		aiStateMap = new Map<AIState, AI>();
 	}
+	
+
 	
 	public function addAIStateToMap(aiState:AIState, ai:AI) {
 		aiStateMap.set(aiState, ai);
@@ -89,6 +93,9 @@ class Entity extends FlxSprite
 	{
 		if (H.paused)
 		return;
+		if(collideMap)
+			FlxG.collide(this, collisionMap);
+
 		if (currentAIState != null)
 			currentAIState.update(elapsed);
 		
