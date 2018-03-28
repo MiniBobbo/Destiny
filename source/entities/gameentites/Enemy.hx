@@ -10,6 +10,7 @@ import flixel.tile.FlxTilemap;
 enum EnemyState {
 	PATROL;
 	ATTACK;
+	DEAD;
 }
 
 /**

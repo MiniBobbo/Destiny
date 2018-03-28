@@ -8,4 +8,5 @@ enum AIState
 	PASSIVE;
 	ACTIVE;
 	HURT;
+	DEAD;
 }

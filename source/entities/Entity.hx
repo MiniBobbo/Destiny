@@ -1,6 +1,7 @@
 package entities;
 
 import ai.AI;
+import ai.AIDead;
 import ai.AIState;
 import entities.movestates.MoveState;
 import flixel.FlxG;
@@ -44,6 +45,7 @@ class Entity extends FlxSprite
 		this.collisionMap = collisionMap;
 		moveStateMap = new Map<MovementStateEnum, MoveState>();
 		aiStateMap = new Map<AIState, AI>();
+		aiStateMap.set(AIState.DEAD, new AIDead(this));
 	}
 	
 
@@ -119,6 +121,7 @@ class Entity extends FlxSprite
 		hp -= damage;
 		FlxSpriteUtil.flicker(this, .3);
 		if (hp <= 0) {
+			changeAIState(AIState.DEAD);
 			if (attack != null)
 				attack.kill();
 			FlxSpriteUtil.fadeOut(this, .3, function(_) { this.kill(); } );
