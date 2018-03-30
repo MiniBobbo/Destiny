@@ -59,6 +59,19 @@ class EndGameState extends FlxState
 		
 		portraitSprite = new FlxSprite();
 		portraitSprite.frames = FlxAtlasFrames.fromTexturePackerJson('assets/images/portraits.png', 'assets/images/portraits.json');
+		portraitSprite.animation.addByPrefix('hoodangry', 'hoodangry');
+		portraitSprite.animation.addByPrefix('hoodfrown', 'hoodfrown');
+		portraitSprite.animation.addByPrefix('hoodnormal', 'hoodnormal');
+		portraitSprite.animation.addByPrefix('hoodsmirk', 'hoodsmirk');
+		portraitSprite.animation.addByPrefix('knightmad', 'knightmad');
+		portraitSprite.animation.addByPrefix('knightsad', 'knightsad');
+		portraitSprite.animation.addByPrefix('knightnormal', 'knightnormal');
+		portraitSprite.animation.addByPrefix('knightsurprise', 'knightsurprise');
+		portraitSprite.animation.addByPrefix('knightthink', 'knightthink');
+		portraitSprite.animation.play('knightmad');
+		
+		portraitSprite.setSize(200, 200);
+		
 		
 		player = new FlxSprite();
 		player.frames = FlxAtlasFrames.fromTexturePackerJson('assets/images/mainAtlas.png', 'assets/images/mainAtlas.json');
@@ -103,7 +116,8 @@ class EndGameState extends FlxState
 		
 		
 		dw = new DialogWindow();
-		dw.changeShowHidePositions(FlxPoint.weak(0,0), FlxPoint.weak(0,-300));
+		dw.changeShowHidePositions(FlxPoint.weak(0, 0), FlxPoint.weak(0, -300));
+		dw.addPortrait(portraitSprite, true);
 		dwm = new DialogWindowManager(dw);
 		
 		
@@ -191,16 +205,16 @@ class EndGameState extends FlxState
 				
 			case 3:
 				dialog = true;
-				dwm.addDialog('Brother!  I have come to call you to account for your actions!  Behold, the Sword of Destiny, which was once stolen, has been reclaimed!');
-				dwm.addDialog('Your reign of evil is at an end!');
+				dwm.addDialog('Brother!  I have come to call you to account for your actions!  Behold, the Sword of Destiny, which was once stolen, has been reclaimed!', 'knightmad', true, 'Chosen One');
+				dwm.addDialog('Your reign of evil is at an end!', 'knightmad', true, 'Chosen One');
+					dwm.addDialog('Heh heh heh...', 'hoodsmirk', false, 'Evil one');
 				dwm.next();
 			case 4:
 				dialog = true;
 				hooded.animation.play('lookup');
 				new FlxTimer().start(3, function(_) {
 					dialog = true;
-					dwm.addDialog('Heh heh heh...');
-					dwm.addDialog('I have been expecting you Sister.  Surely you did not believe that I would be ignorant of the Prophecy?');
+					dwm.addDialog('I have been expecting you Sister.  Surely you did not believe that I would be ignorant of the Prophecy?', 'hoodangry', false, 'Evil One');
 					dwm.next();
 				});
 			case 5:
@@ -218,51 +232,53 @@ class EndGameState extends FlxState
 				new FlxTimer().start(3, function(_) { finish(); });
 			case 6:
 				dialog = true;
-				dwm.addDialog('Your knowledge of the Prophecy does not matter fiend!  I…');
-				dwm.addDialog('Wait, did you say sister?');
+				dwm.addDialog('Your knowledge of the Prophecy does not matter fiend!  I…', 'knightmad', true, 'Chosen One');
+				dwm.addDialog('Wait, did you say sister?', 'knightsurprise', true, 'Chosen One');
 				dwm.next();
 			case 7:
 				new FlxTimer().start(1.5, timerFinish);
 			case 8:
 				dialog = true;
-				dwm.addDialog('Uh, yeah.  My twin sister who is destined to battle me for the fate of the world.  Isn\'t that you?');
-				dwm.addDialog('No, I\'m not a girl.');
+				dwm.addDialog('Uh, yeah.  My twin sister who is destined to battle me for the fate of the world.  Isn\'t that you?', 'hoodfrown', false, 'Evil One');
+				dwm.addDialog('No, I\'m not a girl.', 'knightthink', true, 'Chosen One');
 				
 				dwm.next();
 			case 9:
 				new FlxTimer().start(.5, timerFinish);
 			case 10:
 				FlxTween.tween(hooded, {y:515}, .5, {ease:FlxEase.smoothStepIn, onComplete:function(_) {hooded.animation.play('crouch'); finish(); 
-					FlxTween.tween(fx, {alpha:0}, .5);
+					//FlxTween.tween(fx, {alpha:0}, .5);
+					fx.visible = false;
 				}});
 			case 11:
 				dialog = true;
-				dwm.addDialog('You know, I thought your voice sounded awfully deep.  Is your mother the Lady Gelendalyn of the Sacred Rose?');
-				dwm.addDialog('No, I was born in New Jersey…');
-				dwm.addDialog('…');
-				dwm.addDialog('Now that I think on it, the prophecy never stated they were twin boys, did it?  I just kind of assumed based on gender stereotypes.');
-				dwm.addDialog('Yeah, sorry to have inconvenienced you with all the monsters and traps to get here.  I appreciate all the effort you put in to trying to make this duel work.  You seem like a really decent guy.  I\'m really sorry it isn\'t working out. ');
-				dwm.addDialog('No, it is totally my fault.  I really thought the prophecy was talking about me.');
+				dwm.addDialog('You know, I thought your voice sounded awfully deep.  Is your mother the Lady Gelendalyn of the Sacred Rose?', 'hoodfrown', false, 'Evil One');
+				dwm.addDialog('No, I was born in New Jersey…', 'knightnormal', true, 'Chosen One');
+				dwm.addDialog('. . .', 'hoodfrown', false, 'Evil One');
+				dwm.addDialog('. . .', 'knightnormal', true, 'Chosen One');
+				dwm.addDialog('Now that I think on it, the prophecy never stated they were twin boys, did it?  I just kind of assumed based on gender stereotypes.', 'knightthink', true, 'Chosen One');
+				dwm.addDialog('Yeah, sorry to have inconvenienced you with all the monsters and traps to get here.  I appreciate all the effort you put in to trying to make this duel work.  You seem like a really decent guy.  I\'m really sorry it isn\'t working out. ', 'hoodnormal', false, 'Evil One');
+				dwm.addDialog('No, it is totally my fault.  I really thought the prophecy was talking about me.', 'knightsad', true, 'Chosen One');
 				
 				
-				dwm.addDialog('I guess I should stop going by \'The Chosen One\' now.');
-				dwm.addDialog('Probably for the best.  Hey, incidentally, where did you find the sword?  I have been looking everywhere for it.');
-				dwm.addDialog('There is a pub called Twilight about 15 minutes from here.  The basement connects to some crypts and the sword was in there.');
-				dwm.addDialog('The pub owner is really mean.  I had to sneak in there before dawn while the pub was still closed.');
-				dwm.addDialog('Huh.  I thought the "The one who descends to the line between the Twilight \'for the dawn…" line was more metaphorical.  ');
-				dwm.addDialog('Yeah, those prophecies can be pretty confusing, right? Ha ha!');
-				dwm.addDialog('Haha!  I\'ll say!');
+				dwm.addDialog('I guess I should stop going by \'The Chosen One\' now.', 'knightsad', true, 'Chosen One');
+				dwm.addDialog('Probably for the best.  Hey, incidentally, where did you find the sword?  I have been looking everywhere for it.', 'hoodfrown', false, 'Evil One');
+				dwm.addDialog('There is a pub called Twilight about 15 minutes from here.  The basement connects to some crypts and the sword was in there.', 'knightnormal', true, 'Formerly Chosen One');
+				dwm.addDialog('The pub owner is really mean.  I had to sneak in there before dawn while the pub was still closed.', 'knightsurprise', true, 'Formerly Chosen One');
+				dwm.addDialog('Huh.  I thought the "The one who descends to the line between the Twilight \'for the dawn…" line was more metaphorical.  ', 'hoodfrown', false, 'Evil One');
+				dwm.addDialog('Yeah, those prophecies can be pretty confusing, right? Ha ha!', 'knightnormal', true, 'Formerly Chosen One');
+				dwm.addDialog('Haha!  I\'ll say!', 'hoodnormal', false, 'Evil One');
 				dwm.next();
 			case 12:
 				new FlxTimer().start(2, timerFinish);
 			case 13: 
 				dialog = true;
-				dwm.addDialog('Ok, well I guess I\'ll be going now.');
-				dwm.addDialog('Ok, great.  Well thanks for stopping by.  Oh, and by the way, I would go put that sword back.  So my sister can find it and we can fight our duel to decide the fate of the world.');
-				dwm.addDialog('That\'s a good idea.   Thanks for being so understanding about all this.  Sorry for all the minions I killed on my way in here.');
-				dwm.addDialog('Eh, don\'t worry about it.  I sometimes kill them myself for fun.  I\'ve got plenty.');
-				dwm.addDialog('Great.  Ok, good luck with the duel.');
-				dwm.addDialog('Thanks.');
+				dwm.addDialog('Ok, well I guess I\'ll be going now.', 'knightsad', true, 'Formerly Chosen One');
+				dwm.addDialog('Ok, great.  Well thanks for stopping by.  Oh, and by the way, I would go put that sword back.  So my sister can find it and we can fight our duel to decide the fate of the world.', 'hoodnormal', false, 'Evil One');
+				dwm.addDialog('That\'s a good idea.   Thanks for being so understanding about all this.  Sorry for all the minions I killed on my way in here.', 'knightnormal', true, 'Formerly Chosen One');
+				dwm.addDialog('Eh, don\'t worry about it.  I sometimes kill them myself for fun.  I\'ve got plenty.', 'hoodnormal', false, 'Evil One');
+				dwm.addDialog('Great.  Ok, good luck with the duel.', 'knightnormal', true, 'Jim (Formerly Chosen One)');
+				dwm.addDialog('Thanks.', 'hoodnormal', false, 'Evil One');
 				dwm.next();
 			case 14:
 				player.flipX = true;
@@ -271,25 +287,25 @@ class EndGameState extends FlxState
 			case 15:
 				player.animation.play('breathe');
 				dialog = true;
-				dwm.addDialog('Hey, hold up a minute.');
+				dwm.addDialog('Hey, hold up a minute.', 'hoodnormal', false, 'Evil One');
 				dwm.next();
 			case 16:
 				player.flipX = false;
 				dialog = true;
-				dwm.addDialog('Yeah?');
+				dwm.addDialog('Yeah?', 'knightsurprise', true, 'Jim');
 				dwm.next();
 			case 17:
 				new FlxTimer().start(1, timerFinish);
 			case 18:
 				dialog = true;
-				dwm.addDialog('So a couple of my evil lieutenants and I go over to Twilight in the evenings and shoot some pool.  You\'re welcome to join us if you would like.');
+				dwm.addDialog('So a couple of my evil lieutenants and I go over to Twilight in the evenings and shoot some pool.  You\'re welcome to join us if you would like.', 'hoodnormal', false, 'Evil (but decent) One');
 				dwm.next();
 			case 19:
 				new FlxTimer().start(1, timerFinish);
 			case 20:
 				dialog = true;
-				dwm.addDialog('Yeah, that would be cool.  See you this evening.');
-				dwm.addDialog('Cool.');
+				dwm.addDialog('Yeah, that would be cool.  See you this evening.', 'knightnormal', true, 'Jim');
+				dwm.addDialog('Cool.', 'hoodnormal', false, 'Evil Friend');
 				dwm.next();
 			case 21:
 				fx .makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);

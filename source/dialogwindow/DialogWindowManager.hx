@@ -6,6 +6,7 @@ typedef DialogItem = {
 	var message:String;
 	@:optional var emot:String;
 	var left:Bool;
+	var name:String;
 }
 
 /**
@@ -27,11 +28,12 @@ class DialogWindowManager
 	}
 	
 	
-	public function addDialog(message:String, ?emot:String, left:Bool  = true) {
+	public function addDialog(message:String, ?emot:String, left:Bool  = true, name:String='') {
 		dialogs.push( {
 			message:message,
 			emot:emot,
-			left:left
+			left:left,
+			name:name
 		});
 	}
 	
@@ -45,11 +47,11 @@ class DialogWindowManager
 		finished = false;
 		if (d.hidden) {
 			var di:DialogItem = dialogs.shift();
-			d.display(di.message, di.emot, di.left);
+			d.display(di.message, di.emot, di.left, di.name);
 		} else {
 			var di = dialogs.shift();
 			d.finished();
-			new FlxTimer().start(d.hideSpeed, function(_) { d.display(di.message, di.emot, di.left); } );
+			new FlxTimer().start(d.hideSpeed, function(_) { d.display(di.message, di.emot, di.left, di.name); } );
 		}
 		if (dialogs.length == 0) {
 			finished = true;

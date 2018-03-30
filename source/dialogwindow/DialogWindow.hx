@@ -37,6 +37,8 @@ class DialogWindow extends FlxSpriteGroup
 	var portrait:FlxSprite;
 	var window:FlxSprite;
 	var text:FlxText;
+	var nameText:FlxText;
+	
 	var textOffset:Float = 0;
 	var textSize:Int = 16;
 	
@@ -81,6 +83,10 @@ class DialogWindow extends FlxSpriteGroup
 		add(text);
 		setTextFormat(text);
 		add(portrait);
+		//nameText = new FlxText(0,0, portrait.width, 'TEST', 14);
+		nameText = new FlxText(portrait.x, 180, portrait.width, 'TEST', 14);
+		nameText.setFormat(null, 14, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(nameText);
 	}
 	
 	private function setTextFormat(text:FlxText) {
@@ -92,7 +98,7 @@ class DialogWindow extends FlxSpriteGroup
 	 * @param	text		The text that should be displayed.
 	 * @param	emot		Actually the animation value that the portrait sprite should display, if any.
 	 */
-	public function display(message:String, ?emot:String, left:Bool = true) {
+	public function display(message:String, ?emot:String, left:Bool = true, name:String = 'TEST') {
 		hidden = false;
 		
 		if (portrait != null) {
@@ -100,11 +106,15 @@ class DialogWindow extends FlxSpriteGroup
 				portrait.animation.play(emot);
 			if (left) {
 				portrait.x = 0;
+				nameText.x = 0;
 				text.x = portrait.width + textMargins.x;
+				nameText.text = name;
 			}
 			else  {
 				portrait.x = dialogWidth - portrait.width;
-				text.x = 0;
+				nameText.x = dialogWidth - portrait.width;
+				text.x = 0 + textMargins.x;
+				nameText.text = name;
 			}
 		}
 		

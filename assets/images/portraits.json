@@ -2,8 +2,8 @@
 
 {
 	"filename": "heroleap.png",
-	"frame": {"x":1,"y":1,"w":179,"h":147},
-	"rotated": false,
+	"frame": {"x":217,"y":1033,"w":179,"h":147},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":22,"y":16,"w":179,"h":147},
 	"sourceSize": {"w":243,"h":186},
@@ -11,7 +11,7 @@
 },
 {
 	"filename": "herostand.png",
-	"frame": {"x":182,"y":1,"w":214,"h":189},
+	"frame": {"x":1,"y":1033,"w":214,"h":189},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":60,"y":23,"w":214,"h":189},
@@ -20,8 +20,8 @@
 },
 {
 	"filename": "hoodangry.png",
-	"frame": {"x":398,"y":1,"w":200,"h":193},
-	"rotated": false,
+	"frame": {"x":566,"y":947,"w":200,"h":193},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":7,"w":200,"h":193},
 	"sourceSize": {"w":200,"h":200},
@@ -29,7 +29,7 @@
 },
 {
 	"filename": "hoodfrown.png",
-	"frame": {"x":600,"y":1,"w":200,"h":193},
+	"frame": {"x":715,"y":543,"w":200,"h":193},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":7,"w":200,"h":193},
@@ -38,17 +38,8 @@
 },
 {
 	"filename": "hoodnormal.png",
-	"frame": {"x":802,"y":1,"w":200,"h":193},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":7,"w":200,"h":193},
-	"sourceSize": {"w":200,"h":200},
-	"pivot": {"x":0.5,"y":0.5}
-},
-{
-	"filename": "hoodnormal1.png",
-	"frame": {"x":1,"y":192,"w":200,"h":193},
-	"rotated": false,
+	"frame": {"x":715,"y":738,"w":200,"h":193},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":7,"w":200,"h":193},
 	"sourceSize": {"w":200,"h":200},
@@ -56,7 +47,7 @@
 },
 {
 	"filename": "hoodsmirk.png",
-	"frame": {"x":203,"y":196,"w":200,"h":193},
+	"frame": {"x":761,"y":940,"w":200,"h":193},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":7,"w":200,"h":193},
@@ -65,8 +56,8 @@
 },
 {
 	"filename": "knightmad.png",
-	"frame": {"x":405,"y":196,"w":200,"h":198},
-	"rotated": false,
+	"frame": {"x":315,"y":543,"w":200,"h":198},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":2,"w":200,"h":198},
 	"sourceSize": {"w":200,"h":200},
@@ -74,8 +65,8 @@
 },
 {
 	"filename": "knightnormal.png",
-	"frame": {"x":607,"y":196,"w":200,"h":198},
-	"rotated": false,
+	"frame": {"x":315,"y":745,"w":200,"h":198},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":2,"w":200,"h":198},
 	"sourceSize": {"w":200,"h":200},
@@ -83,8 +74,8 @@
 },
 {
 	"filename": "knightsad.png",
-	"frame": {"x":809,"y":196,"w":200,"h":198},
-	"rotated": false,
+	"frame": {"x":366,"y":947,"w":200,"h":198},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":2,"w":200,"h":198},
 	"sourceSize": {"w":200,"h":200},
@@ -92,8 +83,8 @@
 },
 {
 	"filename": "knightsurprise.png",
-	"frame": {"x":1,"y":387,"w":200,"h":198},
-	"rotated": false,
+	"frame": {"x":515,"y":543,"w":200,"h":198},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":2,"w":200,"h":198},
 	"sourceSize": {"w":200,"h":200},
@@ -101,8 +92,8 @@
 },
 {
 	"filename": "knightthink.png",
-	"frame": {"x":203,"y":391,"w":200,"h":198},
-	"rotated": false,
+	"frame": {"x":515,"y":745,"w":200,"h":198},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":2,"w":200,"h":198},
 	"sourceSize": {"w":200,"h":200},
@@ -110,7 +101,7 @@
 },
 {
 	"filename": "titlebg.png",
-	"frame": {"x":1,"y":710,"w":960,"h":540},
+	"frame": {"x":1,"y":1,"w":960,"h":540},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":540},
@@ -119,8 +110,8 @@
 },
 {
 	"filename": "titlefg.png",
-	"frame": {"x":405,"y":396,"w":488,"h":312},
-	"rotated": false,
+	"frame": {"x":1,"y":543,"w":488,"h":312},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":228,"w":488,"h":312},
 	"sourceSize": {"w":960,"h":540},
@@ -131,8 +122,8 @@
 	"version": "1.0",
 	"image": "portraits.png",
 	"format": "RGBA8888",
-	"size": {"w":1010,"h":1251},
+	"size": {"w":962,"h":1223},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:b2ae3b34007754704b796a56e70a170f:e17b6817f295da541770d7c7f893c98e:b2f80d7af41902736d3ed02ec88e31a6$"
+	"smartupdate": "$TexturePacker:SmartUpdate:e7142dedb0fdef1ab5f62353197e6351:6ccfee2ef7e97d21522c861627cd1432:b2f80d7af41902736d3ed02ec88e31a6$"
 }
 }

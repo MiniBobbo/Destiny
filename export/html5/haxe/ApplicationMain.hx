@@ -58,8 +58,16 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/data/levels/5.tmx");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("assets/data/levels/50blocks.png");
 		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/data/levels/6.tmx");
+		types.push (lime.Assets.AssetType.TEXT);
 		
 		
 		urls.push ("assets/data/levels/64blocks.png");
@@ -98,6 +106,14 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/heroleap.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/herostand.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/images-go-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
 		
@@ -119,6 +135,14 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/portraits.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/titlebg.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/titlefg.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -215,7 +239,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "631",
+			build: "662",
 			company: "HaxeFlixel",
 			file: "Destiny",
 			fps: 60,
