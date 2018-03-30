@@ -30,8 +30,12 @@ class AssetData {
 			type.set ("assets/data/levels/32Blocks.tsx", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/levels/4.tmx", "assets/data/levels/4.tmx");
 			type.set ("assets/data/levels/4.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/data/levels/5.tmx", "assets/data/levels/5.tmx");
+			type.set ("assets/data/levels/5.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/levels/50blocks.png", "assets/data/levels/50blocks.png");
 			type.set ("assets/data/levels/50blocks.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/data/levels/6.tmx", "assets/data/levels/6.tmx");
+			type.set ("assets/data/levels/6.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/levels/64blocks.png", "assets/data/levels/64blocks.png");
 			type.set ("assets/data/levels/64blocks.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/data/levels/castle.png", "assets/data/levels/castle.png");

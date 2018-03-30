@@ -51,7 +51,7 @@ class AIXBowMinion extends AI
 		e.maxVelocity.set(400, 1000);
 		p = H.ps.player;
 		attacking = false;
-		timeSinceLastAttack = LOSE_INTEREST_TIME;
+		timeSinceLastAttack = ATTACK_TIME;
 	}
 	
 	override public function changeFrom() 

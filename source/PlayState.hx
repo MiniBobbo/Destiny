@@ -20,6 +20,7 @@ import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
 import inputhelper.InputHelper;
 import tmxtools.TmxRect;
 import tmxtools.TmxTools;
@@ -123,6 +124,7 @@ class PlayState extends FlxState
 		FlxG.overlap(playerAttacks, enemies, attackHits);
 		FlxG.collide(enemyAttacks, collision, attackHitsMap);
 		FlxG.overlap(enemyAttacks, player, attackHits);
+		FlxG.overlap(player.attack, enemyAttacks, playerHitsAttack);
 		if(timeInLevel > .5)
 			FlxG.overlap(entities, zones, EntityOverlapZone);
 		FlxG.collide(player, collision);
@@ -135,6 +137,10 @@ class PlayState extends FlxState
 			e.signal('hit', a);
 //		}
 		
+	}
+	
+	public function playerHitsAttack(pa:Attack, ea:Attack) {
+		ea.kill();
 	}
 	
 	public function attackHitsMap(a:Attack, collision:FlxTilemap) {
@@ -252,7 +258,7 @@ class PlayState extends FlxState
 	
 	public function killPlayer() {
 		FlxTween.tween(cover, {x:0}, .3, {onComplete:  function (_) {
-				H.ps.resetState();
+				new FlxTimer().start(.5, function(_) {   H.ps.resetState(); });
 		}});
 	}
 }

@@ -119,12 +119,12 @@ class PlayerAir extends MoveState
 		p.animation.play('airswing');
 		if (!p.flipX) {
 			p.attack.flipX = false;
-			p.attack.reset(p.x + 40, p.y-10);
+			p.attack.reset(p.x + 48, p.y-10);
 			p.attack.initAttack(FlxPoint.weak(), .2, 'swing');
 		}
 		else {
 			p.attack.flipX = true;
-			p.attack.reset(p.x - 64, p.y -10);
+			p.attack.reset(p.x - 72, p.y -10);
 			p.attack.initAttack(FlxPoint.weak(), .2, 'swing');
 		}
 		attackingTimer.start(.3, function(_) {attacking = false; } );

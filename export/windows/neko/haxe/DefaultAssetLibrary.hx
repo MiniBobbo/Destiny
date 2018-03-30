@@ -83,6 +83,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
 		
@@ -92,6 +94,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -645,6 +649,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -668,8 +674,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/levels/32Blocks.tsx", AssetType.TEXT);
 		path.set ("assets/data/levels/4.tmx", "assets/data/levels/4.tmx");
 		type.set ("assets/data/levels/4.tmx", AssetType.TEXT);
+		path.set ("assets/data/levels/5.tmx", "assets/data/levels/5.tmx");
+		type.set ("assets/data/levels/5.tmx", AssetType.TEXT);
 		path.set ("assets/data/levels/50blocks.png", "assets/data/levels/50blocks.png");
 		type.set ("assets/data/levels/50blocks.png", AssetType.IMAGE);
+		path.set ("assets/data/levels/6.tmx", "assets/data/levels/6.tmx");
+		type.set ("assets/data/levels/6.tmx", AssetType.TEXT);
 		path.set ("assets/data/levels/64blocks.png", "assets/data/levels/64blocks.png");
 		type.set ("assets/data/levels/64blocks.png", AssetType.IMAGE);
 		path.set ("assets/data/levels/castle.png", "assets/data/levels/castle.png");
@@ -742,9 +752,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/data/levels/4.tmx";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/data/levels/5.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
 		id = "assets/data/levels/50blocks.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+		id = "assets/data/levels/6.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
 		id = "assets/data/levels/64blocks.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
@@ -837,6 +853,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1623,6 +1641,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1632,6 +1652,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
 
 
 

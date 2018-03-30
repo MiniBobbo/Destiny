@@ -28,6 +28,7 @@ class AIMinion extends AI
 	
 	var prepTimer:FlxTimer;
 	var attackTimer:FlxTimer;
+	var swingTimer:FlxTimer;
 	
 	var LOSE_INTEREST_TIME:Float = 3;
 	var timeSinceLastAttack:Float;
@@ -37,6 +38,7 @@ class AIMinion extends AI
 		super(ent);
 		prepTimer = new FlxTimer();
 		attackTimer = new FlxTimer();
+		swingTimer = new FlxTimer();
 	}
 
 	override public function changeTo() 
@@ -96,16 +98,19 @@ class AIMinion extends AI
 		e.animation.play('swingsword');
 		attack = H.ps.getEnemyAttack();
 		e.registerAttack(attack);
-		if (!e.flipX) {
-			attack.flipX = false;
-			attack.reset(e.x+20, e.y-10);
-			attack.initAttack(FlxPoint.weak(), .2, 'swingdown');
-		}
-		else {
-			attack.flipX = true;
-			attack.reset(e.x - 44, e.y - 10);
-			attack.initAttack(FlxPoint.weak(), .2, 'swingdown');
-		}
+		swingTimer.start(.1, function(_) { 
+			if (!e.flipX) {
+				attack.flipX = false;
+				attack.reset(e.x+20, e.y-10);
+				attack.initAttack(FlxPoint.weak(), .1, 'swingdown');
+			}
+			else {
+				attack.flipX = true;
+				attack.reset(e.x - 44, e.y - 10);
+				attack.initAttack(FlxPoint.weak(), .1, 'swingdown');
+			}
+			
+		});
 		attackTimer.start(ATTACK_TIME, function (_) {attacking = false; e.releaseAttack(); });
 		
 	}

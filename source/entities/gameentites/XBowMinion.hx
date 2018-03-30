@@ -35,7 +35,10 @@ class XBowMinion extends Enemy
 		centerOffsets();
 		offset.y += 72;
 		
-		addAIStateToMap(AIState.PASSIVE, new AIDetect(this));
+		var detect = new AIDetect(this);
+		detect.SIGHT_DISTANCE = 2000;
+		
+		addAIStateToMap(AIState.PASSIVE, detect);
 		addAIStateToMap(AIState.ACTIVE, new AIXBowMinion(this));
 		changeAIState(AIState.PASSIVE);
 	}

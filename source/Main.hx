@@ -24,8 +24,8 @@ class Main extends Sprite
 		
 		H.gd = {
 			flags:[false,false,false],
-			world:4,
-			checkpoint:'3',
+			world:6,
+			checkpoint:'5',
 			maxHealth:5,
 			saveWorld:1, 
 			saveCheckpoint:'start'

@@ -12,7 +12,7 @@ class AIDetect extends AI
 {
 	var step:Float = 1;
 	var STEP_VALUE:Float = .5;
-	var SIGHT_DISTANCE:Float = 350;
+	public var SIGHT_DISTANCE:Float = 350;
 	
 	override public function update(dt:Float) 
 	{

@@ -5,6 +5,7 @@ import entities.Player;
 import entities.movestates.MoveState.MovementStateEnum;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
+import flixel.util.FlxTimer;
 
 /**
  * ...
@@ -15,11 +16,12 @@ class PlayerGroundAttack extends MoveState
 
 	var ATTACK_LENGTH:Float = .3;
 	var elapsedAttack:Float = 0;
+	var attackTimer:FlxTimer;
 	
 	public function new(e:Entity) 
 	{
 		super(e);
-		
+		attackTimer = new FlxTimer();
 	}
 	
 	override public function changeTo() 
@@ -27,16 +29,19 @@ class PlayerGroundAttack extends MoveState
 		var p:Player = cast entity;
 		elapsedAttack = 0;
 		p.animation.play('swing1');
-		if (!p.flipX) {
-			p.attack.flipX = false;
-			p.attack.reset(p.x + 40, p.y-10);
-			p.attack.initAttack(FlxPoint.weak(), .2, 'swing');
-		}
-		else {
-			p.attack.flipX = true;
-			p.attack.reset(p.x - 64, p.y -10);
-			p.attack.initAttack(FlxPoint.weak(), .2, 'swing');
-		}
+		attackTimer.start(.1, function (_) {
+			if (!p.flipX) {
+				p.attack.flipX = false;
+				p.attack.reset(p.x + 48, p.y-10);
+				p.attack.initAttack(FlxPoint.weak(), .1, 'swing');
+			}
+			else {
+				p.attack.flipX = true;
+				p.attack.reset(p.x - 72, p.y -10);
+				p.attack.initAttack(FlxPoint.weak(), .1, 'swing');
+			}
+			
+		});
 		
 		//p.animation.play('slice');
 	}
