@@ -148,7 +148,7 @@ class PlayState extends FlxState
 	}
 	
 	public function playerOverlapEntity(p:Player, e:Entity) {
-		if (p.hp > 0 && e.hp > 0) {
+		if (p.hp > 0 && (e.hp > 0 || e.hp == -1)) {
 			p.overlapEntity(e);
 			e.overlapEntity(p);
 			
