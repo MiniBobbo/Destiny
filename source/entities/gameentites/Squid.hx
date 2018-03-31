@@ -22,7 +22,7 @@ class Squid extends Enemy
 		animation.addByPrefix('idle', 'squid_idle', 8);
 		animation.addByPrefix('follow', 'squid_follow', 8);
 		animation.play('idle');
-		setSize(64, 64);
+		setSize(55, 55);
 		centerOffsets();
 		centerOrigin();
 

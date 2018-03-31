@@ -104,6 +104,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -137,6 +142,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/levels/6.tmx", AssetType.TEXT);
 		className.set ("assets/data/levels/64blocks.png", __ASSET__assets_data_levels_64blocks_png);
 		type.set ("assets/data/levels/64blocks.png", AssetType.IMAGE);
+		className.set ("assets/data/levels/7.tmx", __ASSET__assets_data_levels_7_tmx);
+		type.set ("assets/data/levels/7.tmx", AssetType.TEXT);
 		className.set ("assets/data/levels/castle.png", __ASSET__assets_data_levels_castle_png);
 		type.set ("assets/data/levels/castle.png", AssetType.IMAGE);
 		className.set ("assets/data/levels/finalRoom.tmx", __ASSET__assets_data_levels_finalroom_tmx);
@@ -185,10 +192,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/sounds/deflect", AssetType.BINARY);
 		className.set ("assets/sounds/deflect.ogg", __ASSET__assets_sounds_deflect_ogg);
 		type.set ("assets/sounds/deflect.ogg", AssetType.SOUND);
+		className.set ("assets/sounds/explode.ogg", __ASSET__assets_sounds_explode_ogg);
+		type.set ("assets/sounds/explode.ogg", AssetType.SOUND);
+		className.set ("assets/sounds/explode.wav", __ASSET__assets_sounds_explode_wav);
+		type.set ("assets/sounds/explode.wav", AssetType.SOUND);
 		className.set ("assets/sounds/fire", __ASSET__assets_sounds_fire);
 		type.set ("assets/sounds/fire", AssetType.BINARY);
 		className.set ("assets/sounds/fire.ogg", __ASSET__assets_sounds_fire_ogg);
 		type.set ("assets/sounds/fire.ogg", AssetType.SOUND);
+		className.set ("assets/sounds/Flames.ogg", __ASSET__assets_sounds_flames_ogg);
+		type.set ("assets/sounds/Flames.ogg", AssetType.SOUND);
+		className.set ("assets/sounds/Flames.wav", __ASSET__assets_sounds_flames_wav);
+		type.set ("assets/sounds/Flames.wav", AssetType.SOUND);
 		className.set ("assets/sounds/jump.ogg", __ASSET__assets_sounds_jump_ogg);
 		type.set ("assets/sounds/jump.ogg", AssetType.SOUND);
 		className.set ("assets/sounds/jump.wav", __ASSET__assets_sounds_jump_wav);
@@ -280,6 +295,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/data/levels/7.tmx";
+		path.set (id, id);
+		
+		type.set (id, AssetType.TEXT);
 		id = "assets/data/levels/castle.png";
 		path.set (id, id);
 		
@@ -376,11 +395,27 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/explode.ogg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/explode.wav";
+		path.set (id, id);
+		
+		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/fire";
 		path.set (id, id);
 		
 		type.set (id, AssetType.BINARY);
 		id = "assets/sounds/fire.ogg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/Flames.ogg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/Flames.wav";
 		path.set (id, id);
 		
 		type.set (id, AssetType.SOUND);
@@ -514,6 +549,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/data/levels/64blocks.png", __ASSET__assets_data_levels_64blocks_png);
 		type.set ("assets/data/levels/64blocks.png", AssetType.IMAGE);
 		
+		className.set ("assets/data/levels/7.tmx", __ASSET__assets_data_levels_7_tmx);
+		type.set ("assets/data/levels/7.tmx", AssetType.TEXT);
+		
 		className.set ("assets/data/levels/castle.png", __ASSET__assets_data_levels_castle_png);
 		type.set ("assets/data/levels/castle.png", AssetType.IMAGE);
 		
@@ -586,11 +624,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/sounds/deflect.ogg", __ASSET__assets_sounds_deflect_ogg);
 		type.set ("assets/sounds/deflect.ogg", AssetType.SOUND);
 		
+		className.set ("assets/sounds/explode.ogg", __ASSET__assets_sounds_explode_ogg);
+		type.set ("assets/sounds/explode.ogg", AssetType.SOUND);
+		
+		className.set ("assets/sounds/explode.wav", __ASSET__assets_sounds_explode_wav);
+		type.set ("assets/sounds/explode.wav", AssetType.SOUND);
+		
 		className.set ("assets/sounds/fire", __ASSET__assets_sounds_fire);
 		type.set ("assets/sounds/fire", AssetType.BINARY);
 		
 		className.set ("assets/sounds/fire.ogg", __ASSET__assets_sounds_fire_ogg);
 		type.set ("assets/sounds/fire.ogg", AssetType.SOUND);
+		
+		className.set ("assets/sounds/Flames.ogg", __ASSET__assets_sounds_flames_ogg);
+		type.set ("assets/sounds/Flames.ogg", AssetType.SOUND);
+		
+		className.set ("assets/sounds/Flames.wav", __ASSET__assets_sounds_flames_wav);
+		type.set ("assets/sounds/Flames.wav", AssetType.SOUND);
 		
 		className.set ("assets/sounds/jump.ogg", __ASSET__assets_sounds_jump_ogg);
 		type.set ("assets/sounds/jump.ogg", AssetType.SOUND);
@@ -1305,6 +1355,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_50blocks_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_6_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_64blocks_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_7_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_castle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_finalroom_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_monstertest_tmx extends null { }
@@ -1329,8 +1380,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_dead_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_deflect extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_deflect_ogg extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_explode_ogg extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_explode_wav extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_fire extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_fire_ogg extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_flames_ogg extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_flames_wav extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_jump_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_jump_wav extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_jump2_ogg extends null { }
@@ -1353,6 +1408,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
+
+
+
 
 
 
@@ -1432,6 +1492,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/data/levels/50blocks.png") #if display private #end class __ASSET__assets_data_levels_50blocks_png extends lime.graphics.Image {}
 @:file("assets/data/levels/6.tmx") #if display private #end class __ASSET__assets_data_levels_6_tmx extends lime.utils.Bytes {}
 @:image("assets/data/levels/64blocks.png") #if display private #end class __ASSET__assets_data_levels_64blocks_png extends lime.graphics.Image {}
+@:file("assets/data/levels/7.tmx") #if display private #end class __ASSET__assets_data_levels_7_tmx extends lime.utils.Bytes {}
 @:image("assets/data/levels/castle.png") #if display private #end class __ASSET__assets_data_levels_castle_png extends lime.graphics.Image {}
 @:file("assets/data/levels/finalRoom.tmx") #if display private #end class __ASSET__assets_data_levels_finalroom_tmx extends lime.utils.Bytes {}
 @:file("assets/data/levels/monsterTest.tmx") #if display private #end class __ASSET__assets_data_levels_monstertest_tmx extends lime.utils.Bytes {}
@@ -1456,8 +1517,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:file("assets/sounds/dead.ogg") #if display private #end class __ASSET__assets_sounds_dead_ogg extends lime.utils.Bytes {}
 @:file("assets/sounds/deflect") #if display private #end class __ASSET__assets_sounds_deflect extends lime.utils.Bytes {}
 @:file("assets/sounds/deflect.ogg") #if display private #end class __ASSET__assets_sounds_deflect_ogg extends lime.utils.Bytes {}
+@:file("assets/sounds/explode.ogg") #if display private #end class __ASSET__assets_sounds_explode_ogg extends lime.utils.Bytes {}
+@:file("assets/sounds/explode.wav") #if display private #end class __ASSET__assets_sounds_explode_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/fire") #if display private #end class __ASSET__assets_sounds_fire extends lime.utils.Bytes {}
 @:file("assets/sounds/fire.ogg") #if display private #end class __ASSET__assets_sounds_fire_ogg extends lime.utils.Bytes {}
+@:file("assets/sounds/Flames.ogg") #if display private #end class __ASSET__assets_sounds_flames_ogg extends lime.utils.Bytes {}
+@:file("assets/sounds/Flames.wav") #if display private #end class __ASSET__assets_sounds_flames_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/jump.ogg") #if display private #end class __ASSET__assets_sounds_jump_ogg extends lime.utils.Bytes {}
 @:file("assets/sounds/jump.wav") #if display private #end class __ASSET__assets_sounds_jump_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/jump2.ogg") #if display private #end class __ASSET__assets_sounds_jump2_ogg extends lime.utils.Bytes {}

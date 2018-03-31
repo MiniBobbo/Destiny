@@ -109,6 +109,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
 		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
 		
@@ -118,6 +123,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -723,6 +733,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -756,6 +771,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/levels/6.tmx", AssetType.TEXT);
 		path.set ("assets/data/levels/64blocks.png", "assets/data/levels/64blocks.png");
 		type.set ("assets/data/levels/64blocks.png", AssetType.IMAGE);
+		path.set ("assets/data/levels/7.tmx", "assets/data/levels/7.tmx");
+		type.set ("assets/data/levels/7.tmx", AssetType.TEXT);
 		path.set ("assets/data/levels/castle.png", "assets/data/levels/castle.png");
 		type.set ("assets/data/levels/castle.png", AssetType.IMAGE);
 		path.set ("assets/data/levels/finalRoom.tmx", "assets/data/levels/finalRoom.tmx");
@@ -804,10 +821,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/sounds/deflect", AssetType.BINARY);
 		path.set ("assets/sounds/deflect.ogg", "assets/sounds/deflect.ogg");
 		type.set ("assets/sounds/deflect.ogg", AssetType.SOUND);
+		path.set ("assets/sounds/explode.ogg", "assets/sounds/explode.ogg");
+		type.set ("assets/sounds/explode.ogg", AssetType.SOUND);
+		path.set ("assets/sounds/explode.wav", "assets/sounds/explode.wav");
+		type.set ("assets/sounds/explode.wav", AssetType.SOUND);
 		path.set ("assets/sounds/fire", "assets/sounds/fire");
 		type.set ("assets/sounds/fire", AssetType.BINARY);
 		path.set ("assets/sounds/fire.ogg", "assets/sounds/fire.ogg");
 		type.set ("assets/sounds/fire.ogg", AssetType.SOUND);
+		path.set ("assets/sounds/Flames.ogg", "assets/sounds/Flames.ogg");
+		type.set ("assets/sounds/Flames.ogg", AssetType.SOUND);
+		path.set ("assets/sounds/Flames.wav", "assets/sounds/Flames.wav");
+		type.set ("assets/sounds/Flames.wav", AssetType.SOUND);
 		path.set ("assets/sounds/jump.ogg", "assets/sounds/jump.ogg");
 		type.set ("assets/sounds/jump.ogg", AssetType.SOUND);
 		path.set ("assets/sounds/jump.wav", "assets/sounds/jump.wav");
@@ -887,6 +912,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/data/levels/64blocks.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+		id = "assets/data/levels/7.tmx";
+		path.set (id, id);
+		type.set (id, AssetType.TEXT);
 		id = "assets/data/levels/castle.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
@@ -959,10 +987,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/sounds/deflect.ogg";
 		path.set (id, id);
 		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/explode.ogg";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/explode.wav";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/fire";
 		path.set (id, id);
 		type.set (id, AssetType.BINARY);
 		id = "assets/sounds/fire.ogg";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/Flames.ogg";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/Flames.wav";
 		path.set (id, id);
 		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/jump.ogg";
@@ -1045,6 +1085,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1883,6 +1928,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1892,6 +1942,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
+
+
+
 
 
 

@@ -33,8 +33,7 @@ class Main extends Sprite
 		};
 
 		
-		addChild(new FlxGame(0, 0, PlayState));
-		FlxG.sound.playMusic('assets/music/mainloop.ogg');
+		addChild(new FlxGame(0, 0, ProphcyState));
 		
 	}
 }

@@ -8,6 +8,7 @@ import flixel.FlxState;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxEase;
@@ -44,6 +45,10 @@ class EndGameState extends FlxState
 	
 	var fin:FlxText;
 	
+	var explode:FlxSound;
+	var land:FlxSound;
+	var flames:FlxSound;
+	
 	public function new() 
 	{
 		super();
@@ -55,7 +60,9 @@ class EndGameState extends FlxState
 		
 		torches = new FlxSpriteGroup();
 		
-		
+		explode = FlxG.sound.load('assets/sounds/explode.ogg');
+		land= FlxG.sound.load('assets/sounds/land.ogg');
+		flames= FlxG.sound.load('assets/sounds/Flames.ogg', .5);
 		
 		portraitSprite = new FlxSprite();
 		portraitSprite.frames = FlxAtlasFrames.fromTexturePackerJson('assets/images/portraits.png', 'assets/images/portraits.json');
@@ -83,7 +90,7 @@ class EndGameState extends FlxState
 		hooded = getHoodedSprite();
 		hooded.animation.play('sit');
 		
-		fin = new FlxText(0, FlxG.height + 100, FlxG.width, 'Fin');
+		fin = new FlxText(0, FlxG.height + 100, FlxG.width, 'Fin\n\nCreated by MiniBobbo (Dave)');
 		fin.setFormat(null, 60, FlxColor.WHITE, FlxTextAlign.CENTER);
 		fin.scrollFactor.set();
 		
@@ -166,7 +173,7 @@ class EndGameState extends FlxState
 		super.update(elapsed);
 		if (dialog) {
 			i.updateKeys(elapsed);
-			if (i.isButtonJustPressed('attack') || i.isButtonJustPressed('jump')) {
+			if (i.isButtonJustPressed('attack') || i.isButtonJustPressed('jump') || FlxG.keys.justPressed.SPACE) {
 				if (dwm.finished) {
 					dialog = false;
 					finished = true;
@@ -220,6 +227,7 @@ class EndGameState extends FlxState
 			case 5:
 				hooded.animation.play('stand');
 				new FlxTimer().start(.75, function(_) { hooded.animation.play('float'); 
+					explode.play();
 					FlxTween.tween(hooded, {x:830, y:400}, .75, {ease:FlxEase.quadOut});
 					playTorches('explode');
 					FlxG.camera.flash(FlxColor.GREEN, .1);
@@ -227,18 +235,20 @@ class EndGameState extends FlxState
 					fx.alpha = .5;
 					fx.blend = BlendMode.ADD;
 					new FlxTimer().start(.6, function(_) { playTorches('burn'); });
+					flames.play();
 				
 				});
 				new FlxTimer().start(3, function(_) { finish(); });
 			case 6:
 				dialog = true;
-				dwm.addDialog('Your knowledge of the Prophecy does not matter fiend!  I…', 'knightmad', true, 'Chosen One');
+				dwm.addDialog('Your knowledge of the Prophecy does not matter fiend!  I. . .', 'knightmad', true, 'Chosen One');
 				dwm.addDialog('Wait, did you say sister?', 'knightsurprise', true, 'Chosen One');
 				dwm.next();
 			case 7:
 				new FlxTimer().start(1.5, timerFinish);
 			case 8:
 				dialog = true;
+				FlxG.sound.music.fadeOut(.5);
 				dwm.addDialog('Uh, yeah.  My twin sister who is destined to battle me for the fate of the world.  Isn\'t that you?', 'hoodfrown', false, 'Evil One');
 				dwm.addDialog('No, I\'m not a girl.', 'knightthink', true, 'Chosen One');
 				
@@ -249,6 +259,7 @@ class EndGameState extends FlxState
 				FlxTween.tween(hooded, {y:515}, .5, {ease:FlxEase.smoothStepIn, onComplete:function(_) {hooded.animation.play('crouch'); finish(); 
 					//FlxTween.tween(fx, {alpha:0}, .5);
 					fx.visible = false;
+					land.play();
 				}});
 			case 11:
 				dialog = true;

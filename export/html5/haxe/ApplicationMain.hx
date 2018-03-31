@@ -78,6 +78,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/data/levels/7.tmx");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("assets/data/levels/castle.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -174,11 +178,27 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.SOUND);
 		
 		
+		urls.push ("assets/sounds/explode.ogg");
+		types.push (lime.Assets.AssetType.SOUND);
+		
+		
+		urls.push ("assets/sounds/explode.wav");
+		types.push (lime.Assets.AssetType.SOUND);
+		
+		
 		urls.push ("assets/sounds/fire");
 		types.push (lime.Assets.AssetType.BINARY);
 		
 		
 		urls.push ("assets/sounds/fire.ogg");
+		types.push (lime.Assets.AssetType.SOUND);
+		
+		
+		urls.push ("assets/sounds/Flames.ogg");
+		types.push (lime.Assets.AssetType.SOUND);
+		
+		
+		urls.push ("assets/sounds/Flames.wav");
 		types.push (lime.Assets.AssetType.SOUND);
 		
 		
@@ -319,7 +339,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "696",
+			build: "729",
 			company: "HaxeFlixel",
 			file: "Destiny",
 			fps: 60,

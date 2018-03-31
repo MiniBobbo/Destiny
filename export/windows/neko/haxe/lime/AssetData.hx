@@ -40,6 +40,8 @@ class AssetData {
 			type.set ("assets/data/levels/6.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/levels/64blocks.png", "assets/data/levels/64blocks.png");
 			type.set ("assets/data/levels/64blocks.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/data/levels/7.tmx", "assets/data/levels/7.tmx");
+			type.set ("assets/data/levels/7.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/levels/castle.png", "assets/data/levels/castle.png");
 			type.set ("assets/data/levels/castle.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/data/levels/finalRoom.tmx", "assets/data/levels/finalRoom.tmx");
@@ -88,10 +90,18 @@ class AssetData {
 			type.set ("assets/sounds/deflect", Reflect.field (AssetType, "binary".toUpperCase ()));
 			path.set ("assets/sounds/deflect.ogg", "assets/sounds/deflect.ogg");
 			type.set ("assets/sounds/deflect.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
+			path.set ("assets/sounds/explode.ogg", "assets/sounds/explode.ogg");
+			type.set ("assets/sounds/explode.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
+			path.set ("assets/sounds/explode.wav", "assets/sounds/explode.wav");
+			type.set ("assets/sounds/explode.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 			path.set ("assets/sounds/fire", "assets/sounds/fire");
 			type.set ("assets/sounds/fire", Reflect.field (AssetType, "binary".toUpperCase ()));
 			path.set ("assets/sounds/fire.ogg", "assets/sounds/fire.ogg");
 			type.set ("assets/sounds/fire.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
+			path.set ("assets/sounds/Flames.ogg", "assets/sounds/Flames.ogg");
+			type.set ("assets/sounds/Flames.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
+			path.set ("assets/sounds/Flames.wav", "assets/sounds/Flames.wav");
+			type.set ("assets/sounds/Flames.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 			path.set ("assets/sounds/jump.ogg", "assets/sounds/jump.ogg");
 			type.set ("assets/sounds/jump.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 			path.set ("assets/sounds/jump.wav", "assets/sounds/jump.wav");

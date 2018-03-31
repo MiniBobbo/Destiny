@@ -3,6 +3,7 @@ package entities.zones;
 import entities.Zone;
 import flixel.FlxG;
 import flixel.util.FlxColor;
+import states.EndGameState;
 
 /**
  * ...
@@ -24,6 +25,12 @@ class TravelZone extends Zone
 	
 	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
 	{
+		if (world == 8) {
+			FlxG.switchState(new EndGameState() );
+			return;
+		}
+		
+		
 		if (Std.is(entity, Player)) {
 			H.gd.world = world;
 			H.gd.checkpoint = checkpoint;
