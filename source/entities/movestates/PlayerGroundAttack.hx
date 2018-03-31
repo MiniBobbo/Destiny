@@ -5,6 +5,7 @@ import entities.Player;
 import entities.movestates.MoveState.MovementStateEnum;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
+import flixel.system.FlxSound;
 import flixel.util.FlxTimer;
 
 /**
@@ -18,14 +19,18 @@ class PlayerGroundAttack extends MoveState
 	var elapsedAttack:Float = 0;
 	var attackTimer:FlxTimer;
 	
+	var swoosh:FlxSound;
+	
 	public function new(e:Entity) 
 	{
 		super(e);
 		attackTimer = new FlxTimer();
+		swoosh = FlxG.sound.load('assets/sounds/swoosh.ogg');
 	}
 	
 	override public function changeTo() 
 	{
+		swoosh.play();
 		var p:Player = cast entity;
 		elapsedAttack = 0;
 		p.animation.play('swing1');

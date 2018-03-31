@@ -2,7 +2,9 @@ package entities.movestates;
 
 import entities.Entity;
 import entities.movestates.MoveState.MovementStateEnum;
+import flixel.FlxG;
 import flixel.FlxObject;
+import flixel.system.FlxSound;
 import inputhelper.InputHelper;
 
 /**
@@ -12,11 +14,14 @@ import inputhelper.InputHelper;
 class PlayerGround extends MoveState 
 {
 	var RUN_SPEED:Float = 500;
+	var jump:FlxSound;
+	
 	
 	public function new(e:Entity) 
 	{
 		super(e);
-		
+		jump = FlxG.sound.load('assets/sounds/jump2.ogg');
+
 	}
 	
 	override public function update(dt:Float) 
@@ -46,6 +51,8 @@ class PlayerGround extends MoveState
 		if (i.isButtonJustPressed('jump') || !entity.isTouching(FlxObject.FLOOR)) {
 			entity.y -= .3;
 			entity.velocity.y = 0;
+			if(i.isButtonJustPressed('jump'))
+			jump.play();
 			entity.changeMoveState(MovementStateEnum.AIR);
 		}
 		

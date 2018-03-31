@@ -1,5 +1,6 @@
 package entities;
 import entities.attacks.Slice;
+import entities.movestates.DeadState;
 import entities.movestates.MoveState;
 import entities.movestates.MoveState.MovementStateEnum;
 import entities.movestates.PlayerAir;
@@ -22,12 +23,12 @@ class Player extends Entity
 	var GRAVITY:Float = 1200;
 	
 	
-	
 	public function new(m:FlxTilemap) 
 	{
 		super(m);
 		this.acceleration.y = 1200;
 		frames = FlxAtlasFrames.fromTexturePackerJson('assets/images/mainAtlas.png', 'assets/images/mainAtlas.json');
+		animation.addByPrefix('dead', 'knight_dead', 4);
 		animation.addByPrefix('stand', 'knight_brea', 4);
 		animation.addByPrefix('run', 'knight_run', 12);
 		animation.addByPrefix('jumpup', 'knight_jumpup', 12, false);
@@ -53,6 +54,7 @@ class Player extends Entity
 		addMoveStateToMap(MovementStateEnum.AIR, new PlayerAir(this));
 		addMoveStateToMap(MovementStateEnum.CROUCHING, new PlayerCrouch(this));
 		addMoveStateToMap(MovementStateEnum.ATTACKING, new PlayerGroundAttack(this));
+		addMoveStateToMap(MovementStateEnum.DEAD, new DeadState(this));
 		changeMoveState(MovementStateEnum.GROUND);
 		FlxG.watch.add(this, 'currentMoveEnum');
 		FlxG.watch.add(this, 'velocity');

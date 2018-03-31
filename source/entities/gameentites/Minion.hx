@@ -6,6 +6,7 @@ import ai.AIState;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.system.FlxSound;
 import flixel.tile.FlxTilemap;
 
 /**
@@ -15,6 +16,9 @@ import flixel.tile.FlxTilemap;
 class Minion extends Enemy 
 {
 
+	var death:FlxSound;
+	var swing:FlxSound;
+	
 	public function new(collisionMap:FlxTilemap) 
 	{
 		super(collisionMap);
@@ -28,6 +32,8 @@ class Minion extends Enemy
 		animation.addByPrefix('swingsword', 'minion_swingsword', 12, false);
 		animation.addByPrefix('hit', 'minion_hit', 12, false);
 		animation.play('stand');
+		
+		death = FlxG.sound.load('assets/sounds/miniondeath.ogg');
 		
 		hp = 2;
 		
@@ -47,5 +53,10 @@ class Minion extends Enemy
 		super.update(elapsed);
 	}
 	
+	override public function kill():Void 
+	{
+		death.play();
+		super.kill();
+	}
 	
 }

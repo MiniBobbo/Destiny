@@ -8,6 +8,7 @@ enum MovementStateEnum {
 	CROUCHING;
 	STANDING;
 	ATTACKING;
+	DEAD;
 }
 
 

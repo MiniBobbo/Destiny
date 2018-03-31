@@ -6,6 +6,7 @@ import entities.movestates.MoveState.MovementStateEnum;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.math.FlxPoint;
+import flixel.system.FlxSound;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import inputhelper.InputHelper;
@@ -29,11 +30,15 @@ class PlayerAir extends MoveState
 	
 	var jumpElapsed:Float = 0;
 	
+	var swoosh:FlxSound;
+	
+	
 	public function new(e:Entity) 
 	{
 		super(e);
 		FlxG.watch.add(this, 'jumpElapsed', 'Player Jump Elapsed');
 		attackingTimer = new FlxTimer();
+		swoosh = FlxG.sound.load('assets/sounds/swoosh.wav');
 	}
 	
 	override public function changeTo() 
@@ -59,6 +64,7 @@ class PlayerAir extends MoveState
 			entity.scale.x = 1.2;
 			entity.scale.y = .8;
 			FlxTween.tween(entity.scale, {x:1, y:1}, .2);
+			FlxG.sound.play('assets/sounds/land.ogg');
 			entity.changeMoveState(MovementStateEnum.GROUND);
 			return;
 		}
@@ -114,6 +120,7 @@ class PlayerAir extends MoveState
 	}
 	
 	private function launchAttack() {
+		swoosh.play();
 		attacking = true;
 		var p:Player = cast entity;
 		p.animation.play('airswing');

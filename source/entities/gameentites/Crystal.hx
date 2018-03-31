@@ -3,6 +3,7 @@ package entities.gameentites;
 import entities.Entity;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.system.FlxSound;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
 
@@ -13,7 +14,8 @@ import flixel.tweens.FlxTween;
 class Crystal extends Enemy 
 {
 	var signalToSend:String;
-	
+
+	var open:FlxSound;
 	public function new(collisionMap:FlxTilemap, signalToSend:String) 
 	{
 		super(collisionMap);
@@ -23,11 +25,14 @@ class Crystal extends Enemy
 		setSize(64, 64);
 		hp = 1;
 		this.signalToSend = signalToSend;
+		open = FlxG.sound.load('assets/sounds/open.wav');
 	}
 	
 	override public function kill():Void 
 	{
 		H.signalAll(signalToSend);
+		open.play();
+
 		FlxTween.tween(this, {alpha:0}, .5, {onComplete: function(_) {alive = false; exists = false; }});
 		
 	}

@@ -4,6 +4,7 @@ import entities.Entity;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxPoint;
+import flixel.system.FlxSound;
 import flixel.tile.FlxTilemap;
 
 /**
@@ -18,7 +19,7 @@ class Wallgun extends Enemy
 	var SHOT_LIFESPAN:Float = 5;
 	
 	var elapsedShot:Float;
-	
+	var fireSound:FlxSound;
 	public function new(collisionMap:FlxTilemap) 
 	{
 		super(collisionMap);
@@ -28,6 +29,7 @@ class Wallgun extends Enemy
 		animation.addByPrefix('fire', 'wallgun_fire', 18, false);
 		animation.play('idle');
 		setSize(64, 64);
+		fireSound = FlxG.sound.load('assets/sounds/fire.ogg');
 
 	}
 	
@@ -42,6 +44,8 @@ class Wallgun extends Enemy
 		elapsedShot -= elapsed;
 		if (elapsedShot <= 0) {
 			elapsedShot = SHOT_DELAY;
+			animation.play('fire', true);
+			fireSound.play();
 			var s = H.ps.getEnemyAttack();
 			var shotVel = FlxPoint.get(SHOT_SPEED, 0);
 			if (flipX)

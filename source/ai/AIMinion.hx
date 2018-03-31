@@ -5,6 +5,7 @@ import entities.Entity;
 import entities.Player;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
+import flixel.system.FlxSound;
 import flixel.util.FlxTimer;
 
 
@@ -33,12 +34,16 @@ class AIMinion extends AI
 	var LOSE_INTEREST_TIME:Float = 3;
 	var timeSinceLastAttack:Float;
 	
+	var swing:FlxSound;
+	
 	public function new(ent:Entity) 
 	{
 		super(ent);
 		prepTimer = new FlxTimer();
 		attackTimer = new FlxTimer();
 		swingTimer = new FlxTimer();
+		
+		swing = FlxG.sound.load('assets/sounds/swoosh.ogg');
 	}
 
 	override public function changeTo() 
@@ -95,7 +100,8 @@ class AIMinion extends AI
 	
 	private function makeAttack(_) {
 		timeSinceLastAttack = LOSE_INTEREST_TIME;
-		e.animation.play('swingsword');
+		e.animation.play('swingsword');		
+		swing.play();
 		attack = H.ps.getEnemyAttack();
 		e.registerAttack(attack);
 		swingTimer.start(.1, function(_) { 

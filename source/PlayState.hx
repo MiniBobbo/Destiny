@@ -7,6 +7,8 @@ import entities.Player;
 import entities.Zone;
 import entities.gameentites.Crystal;
 import entities.gameentites.Enemy;
+import entities.movestates.DeadState;
+import entities.movestates.MoveState;
 import entities.zones.DeathZone;
 import entities.zones.HelpMessageZone;
 import entities.zones.SignalZone;
@@ -15,7 +17,10 @@ import flixel.FlxCamera.FlxCameraFollowStyle;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.effects.particles.FlxEmitter;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.math.FlxPoint;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
@@ -36,7 +41,13 @@ class PlayState extends FlxState
 	public var collision(default, null):FlxTilemap;
 	var bg:FlxTilemap;
 	var mg:FlxTilemap;
+	var fg:FlxTilemap;
 	public var player(default, null):Player;
+	
+	var emitter:FlxEmitter;
+	var deflectSound:FlxSound;
+	var dead:FlxSound;
+	
 	
 	var enemies:FlxTypedGroup<Enemy>;
 	var playerAttacks:FlxTypedGroup<Attack>;
@@ -65,8 +76,14 @@ class PlayState extends FlxState
 		playerAttacks= new FlxTypedGroup<Attack>();
 		enemyAttacks = new FlxTypedGroup<Attack>();
 		
+		emitter = new FlxEmitter();
+		emitter.makeParticles();
+		
+		deflectSound = FlxG.sound.load('assets/sounds/deflect.ogg');
+		dead = FlxG.sound.load('assets/sounds/dead.ogg');
 		collision = maps.getMap('collision');
-		mg= maps.getMap('mg');
+		mg = maps.getMap('mg');
+		fg= maps.getMap('fg');
 		FlxG.worldBounds.set(collision.width, collision.height);
 		FlxG.camera.bgColor = FlxColor.fromRGBFloat(.2,0,.2);
 		rects = maps.getTmxRectanges();
@@ -91,6 +108,10 @@ class PlayState extends FlxState
 		add(enemies);
 		add(enemyAttacks);
 		add(playerAttacks);
+		add(emitter);
+		if (fg != null)
+			add(fg);
+
 		add(helpText);
 		add(zones);
 		FlxG.camera.follow(player, FlxCameraFollowStyle.LOCKON, 1);
@@ -141,6 +162,9 @@ class PlayState extends FlxState
 	
 	public function playerHitsAttack(pa:Attack, ea:Attack) {
 		ea.kill();
+		deflectSound.play();
+		particles(FlxPoint.weak(ea.x + ea.width/2, ea.y + ea.height/2), ParticleTypes.SPARKLES, 10);
+
 	}
 	
 	public function attackHitsMap(a:Attack, collision:FlxTilemap) {
@@ -257,8 +281,22 @@ class PlayState extends FlxState
 	}
 	
 	public function killPlayer() {
-		FlxTween.tween(cover, {x:0}, .3, {onComplete:  function (_) {
+		player.animation.play('dead');
+		player.changeMoveState(MovementStateEnum.DEAD);
+		dead.play();
+		FlxTween.tween(player, {alpha:0});
+		FlxTween.color(player, .3, FlxColor.WHITE, FlxColor.RED);
+		FlxTween.tween(cover, {x:0}, .3, {startDelay:1.5, onComplete:  function (_) {
 				new FlxTimer().start(.5, function(_) {   H.ps.resetState(); });
 		}});
+	}
+	
+	public function particles(location:FlxPoint, type:ParticleTypes, count:Int = 1) {
+		emitter.setPosition(location.x, location.y);
+		emitter.velocity.set(10);
+		emitter.lifespan.set(.5,1);
+		emitter.velocity.set(-100,-100,100,100);
+		emitter.start(true, .1, 15);
+	
 	}
 }
